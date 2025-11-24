@@ -71,7 +71,7 @@ export function Navbar() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
-            {siteConfig.navigation.map((item) => (
+            {siteConfig.navigation.map((item: { label: string; href: string }) => (
               <motion.div
                 whileHover={{ y: -3 }}
                 whileFocus={{ y: -3 }}
@@ -154,7 +154,7 @@ export function Navbar() {
               <div className="mt-6 space-y-6">
                 {/* Navigation Links */}
                 <nav className="space-y-1">
-                  {siteConfig.navigation.map((item) => (
+                  {siteConfig.navigation.map((item: { label: string; href: string }) => (
                     <Link
                       key={item.href}
                       href={item.href}
@@ -193,7 +193,7 @@ export function Navbar() {
                 <div className="space-y-3">
                   <h3 className="text-sm font-semibold">Connect</h3>
                   <div className="grid grid-cols-2 gap-2">
-                    {siteConfig.social.map((social) => {
+                    {siteConfig.social.map((social: { label: string; url: string; icon?: string }) => {
                       const Icon = social.icon ? iconMap[social.icon as keyof typeof iconMap] : null;
                       return (
                         <Button
