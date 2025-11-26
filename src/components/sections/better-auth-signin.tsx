@@ -1,15 +1,14 @@
+// components/better-auth-signin.tsx - SEPARATE FILE
 "use client";
 
 import { Button } from '@/components/ui/button';
 import { Github } from 'lucide-react';
-import { authClient } from '@/lib/auth-client';
+import { signIn } from '@/lib/auth-client';
 
 export function BetterAuthSignIn() {
   const handleSignIn = async () => {
     try {
-      await authClient.signIn({ 
-        provider: 'github' 
-      });
+      await signIn("github");
     } catch (error) {
       console.error('Sign in failed:', error);
     }
